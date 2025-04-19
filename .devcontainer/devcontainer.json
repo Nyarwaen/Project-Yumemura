@@ -1,0 +1,17 @@
+{
+  "name": "Yumemura ForgeShell",
+  "image": "python:3.11-slim",
+  "remoteUser": "root",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
+  "postCreateCommand": "pip install black flake8",
+  "runArgs": [
+    "--security-opt",
+    "label=disable"
+  ],
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1"
+  }
+}
